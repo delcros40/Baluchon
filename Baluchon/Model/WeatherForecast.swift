@@ -9,38 +9,49 @@
 import Foundation
 import UIKit
 
-class WeatherTest {
+class WeatherForecast {
     
     static let MONTDEMARSAN = "Mont-de-Marsan"
-    static let NEWYORK = "New York"
+    static let NEWYORK = "Paris"
     
     var city: String
     var state: String?
-    var temp: Float?
-    var icon: UIImage?
+    var temp: Double?
+    var icon: String?
     
-    init(cityName: String) {
+    init(cityName: String, completionHandle: @escaping (Bool) -> Void) {
         self.city = cityName
+        getWeather(completionHandle: completionHandle)
     }
     
-    func getWeather()  {
-        let weatherPath = "http://api.openweathermap.org/data/2.5/forecast?q=\(self.city)&APPID=\(ApiKey.openWeatherMap)&units=metric&lang=fr"
-        var request = URLRequest(url: URL(string: weatherPath)!)
+    func getWeather(completionHandle: @escaping (Bool) -> Void)  {
+        var weatherUrl = URLComponents(string: "http://api.openweathermap.org/data/2.5/forecast?")
+        weatherUrl?.queryItems = [URLQueryItem(name: "q", value: self.city), URLQueryItem(name: "APPID", value: ApiKey.openWeatherMap), URLQueryItem(name: "units", value: "metric"), URLQueryItem(name: "lang", value: "fr")]
+        var request = URLRequest(url: (weatherUrl?.url!)!)
         request.httpMethod = "POST"
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
+                print(String(data: data!, encoding: .utf8))
                 guard let data = data, error == nil else {
+                    completionHandle(false)
                         return
                     }
                     guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                        completionHandle(false)
                         return
                     }
                 do {
-                    let a = try JSONDecoder().decode(WeatherResponse.self, from: data)
-                    print(a)
+                    let weatherResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
+                    let weather = weatherResponse.list[0].weather[0]
+                    self.state = weather.weatherDescription
+                    self.icon = weather.icon
+                    self.temp = weatherResponse.list[0].main.temp
+                    print(self.icon)
+                    completionHandle(true)
                 } catch  {
                    print(error)
+                    completionHandle(false)
                 }
                 
             }
@@ -72,7 +83,7 @@ struct City: Codable {
 
 // MARK: - Coord
 struct Coord: Codable {
-    let lat: Int
+    let lat: Double
     let lon: Double
 }
 

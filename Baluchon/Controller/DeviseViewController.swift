@@ -8,44 +8,70 @@
 
 import UIKit
 
-class DeviseViewController: UIViewController {
+class DeviseViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var img: UIImageView!
+
     @IBOutlet weak var montantTf: UITextField!
+    @IBOutlet weak var imgDeviseSource: UIImageView!
+    @IBOutlet weak var lbDeviseSource: UILabel!
+    @IBOutlet weak var imgDeviseTarget: UIImageView!
+    @IBOutlet weak var lbDeviseTarget: UILabel!
+    @IBOutlet weak var lbResult: UILabel!
+    
+    var devise: Devise?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        DeviseService.getTauxDollars()
-//        print("ok")
-//        WeatherService.getWeather(city: Weather.MONTDEMARSAN)
+        devise = Devise(name: "USD", euroToDollar: true)
         montantTf.inputAccessoryView = addToolBarInKeyboard(methodeName: "actionDone")
-//        DeviseService.getTaux(deviseSourceCode: "EUR", deviseTargetCode: "USD")
-        var t = Translation(text: "Bonjour")
-        t.getTranslation { (Bool, Translation) in
-            if Bool {
-                print(Translation.translatedText)
-                print(Translation.sourceLanguage)
-            }
-        }
-        img.load(url: URL(string: "http://openweathermap.org/img/wn/01d@2x.png")!)
-             WeatherTest(cityName: WeatherTest.MONTDEMARSAN).getWeather()
-
-        
     }
     @objc func actionDone() {
         view.endEditing(true)
+        self.devise?.convertirDevise(montant: Double(self.montantTf.text!)! , completionHandle: { (success, result) in
+            if success {
+                self.lbResult.text = String(format: "%.02f", result!)
+            }
+            
+        })
     }
-}
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
+    
+    @IBAction func actionBtnSwitchDevise(_ sender: UIButton) {
+        self.devise?.euroToDollar = !self.devise!.euroToDollar
+        let textMontant = self.montantTf.text
+        let textSourceDevise = lbDeviseSource.text
+        let imgSourceDevise = imgDeviseSource.image
+        self.imgDeviseSource.image = self.imgDeviseTarget.image
+        self.lbDeviseSource.text = self.lbDeviseTarget.text
+        self.imgDeviseTarget.image = imgSourceDevise
+        self.lbDeviseTarget.text = textSourceDevise
+        self.montantTf.text = self.lbResult.text
+        self.lbResult.text = textMontant
+        
+    }
+    
+
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+                let dotString = "."
+
+                if let text = textField.text {
+                    let isDeleteKey = string.isEmpty
+
+                    if !isDeleteKey {
+                        if text.contains(dotString) {
+                            if text.components(separatedBy: dotString)[1].count == 2 {
+
+                                        return false
+
+                            }
+
+                        }
+
                     }
                 }
-            }
-        }
-    }
+                return true
+             }
+
+
 }
+

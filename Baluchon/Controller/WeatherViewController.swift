@@ -10,33 +10,61 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
+    var weatherFirstCity: WeatherForecast?
+    var weatherSecondCity: WeatherForecast?
+    
+    @IBOutlet weak var lbCityName1: UILabel!
+    @IBOutlet weak var lbWeatherDesc1: UILabel!
+    @IBOutlet weak var lbWeatherTemp1: UILabel!
+    @IBOutlet weak var IVWeatherIcon1: UIImageView!
+    @IBOutlet weak var lbCityName2: UILabel!
+    @IBOutlet weak var lbWeatherDesc2: UILabel!
+    @IBOutlet weak var lbWeatherTemp2: UILabel!
+    @IBOutlet weak var IVWeatherIcon2: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        weatherFirstCity = WeatherForecast(cityName: WeatherForecast.MONTDEMARSAN) { (success) in
+            if success {
+                self.updateFirstCity(weatherForecast: self.weatherFirstCity!)
+            } else {
+                self.presentAlertError(message: "Erreur lors du chargement des données")
+            }
+        }
+        weatherSecondCity = WeatherForecast(cityName: WeatherForecast.NEWYORK, completionHandle: { (success) in
+            if success {
+                self.updateSecondCity(weatherForecast: self.weatherSecondCity!)
+            } else {
+                self.presentAlertError(message: "Erreur lors du chargement des données")
+            }
+        })
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func updateFirstCity( weatherForecast: WeatherForecast) {
+        self.lbCityName1.text = weatherForecast.city
+        self.lbWeatherDesc1.text = weatherForecast.state
+        self.lbWeatherTemp1.text = "\(Int(weatherForecast.temp!))°"
+        loadImage(imageName: weatherForecast.icon!, imageView: self.IVWeatherIcon1)
     }
-    */
     
-//    func loadImage(imageName: String) {
-//        DispatchQueue.global().async { [weak self] in
-//            if let data = try? Data(contentsOf: URL(string: "http://openweathermap.org/img/wn/\(imageName)@2x.png")!) {
-//                if let image = UIImage(data: data) {
-//                    DispatchQueue.main.async {
-////                        self?.image = image
-//                    }
-//                }
-//            }
-//        }
-//    }
+    private func updateSecondCity( weatherForecast: WeatherForecast) {
+       self.lbCityName2.text = weatherForecast.city
+        self.lbWeatherDesc2.text = weatherForecast.state
+        self.lbWeatherTemp2.text = String(weatherForecast.temp!)
+        loadImage(imageName: weatherForecast.icon!, imageView: self.IVWeatherIcon2)
+    }
+    
+    
+    private func loadImage(imageName: String, imageView: UIImageView) {
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: URL(string: "http://openweathermap.org/img/wn/\(imageName)@2x.png")!) {
+                if let img = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        imageView.image = img
+                    }
+                }
+            }
+        }
+    }
 
 }

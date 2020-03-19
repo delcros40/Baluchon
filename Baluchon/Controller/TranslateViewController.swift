@@ -8,24 +8,39 @@
 
 import UIKit
 
-class TranslateViewController: UIViewController, UITextFieldDelegate {
+class TranslateViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var tVSaisieText: UITextView!
+    @IBOutlet weak var tVTranslation: UITextView!
+    @IBOutlet weak var lbSourceLanguage: UILabel!
     var translation = Translation()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        self.lbSourceLanguage.text = ""
+        tVSaisieText.inputAccessoryView = addToolBarInKeyboard(methodeName: "actionDone")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text != nil {
+            self.translation.text = textView.text!
+        }
     }
-    */
+
+    @objc func actionDone() {
+        view.endEditing(true)
+        if tVSaisieText.text.count > 0 {
+            translation.text = tVSaisieText.text
+            translation.getTranslation { (success) in
+                if success {
+                    self.lbSourceLanguage.text = self.translation.sourceLanguage?.uppercased()
+                    self.tVTranslation.text = self.translation.translatedText
+                }
+            }
+        } else {
+            presentAlertError(message: "Saisissez un texte a traduire")
+        }
+        
+        
+    }
 
 }

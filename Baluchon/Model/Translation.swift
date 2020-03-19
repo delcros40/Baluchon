@@ -14,33 +14,34 @@ class Translation {
     var sourceLanguage: String?
     var targetLanguage: String = ""
     var translatedText: String?
-
+    
     init(text: String = "", targetLanguage: String = "en") {
         self.text = text
         self.targetLanguage = targetLanguage
     }
     
-     func getTranslation(completionHandle: @escaping (Bool, Translation) -> Void) {
-        let translationPath = "https://translation.googleapis.com/language/translate/v2?key=\(ApiKey.googleTranslate)&q=\(self.text)&target=\(self.targetLanguage)"
-        var request = URLRequest(url: URL(string: translationPath)!)
-        request.httpMethod = "POST"
+    func getTranslation(completionHandle: @escaping (Bool) -> Void) {
+        var translationUrl = URLComponents(string: "https://translation.googleapis.com/language/translate/v2?")
+        translationUrl?.queryItems = [URLQueryItem(name: "key", value: ApiKey.googleTranslate), URLQueryItem(name: "q", value: self.text), URLQueryItem(name: "target", value: self.targetLanguage)]
+        var request = URLRequest(url: (translationUrl?.url!)!)
+        request.httpMethod = "GET"
         
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
-                    completionHandle(false, self)
+                    completionHandle(false)
                     return
                 }
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    completionHandle(false, self)
+                    completionHandle(false)
                     return
                 }
                 do {
-                  let translateResponse = try? JSONDecoder().decode(TranslationResponse.self, from: data)
+                    let translateResponse = try? JSONDecoder().decode(TranslationResponse.self, from: data)
                     self.sourceLanguage = translateResponse?.data.translations[0].detectedSourceLanguage
                     self.translatedText = translateResponse?.data.translations[0].translatedText
-                    completionHandle(true, self)
+                    completionHandle(true)
                 }
             }
             
@@ -50,12 +51,12 @@ class Translation {
 }
 
 
-// MARK: - Welcome
+// MARK: - TranslationResponse
 struct TranslationResponse: Codable {
     let data: DataTranslate
 }
 
-// MARK: - DataClass
+// MARK: - DataTranslate
 struct DataTranslate: Codable {
     let translations: [Translate]
 }

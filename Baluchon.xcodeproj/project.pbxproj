@@ -13,16 +13,15 @@
 		273E3F2E240A53B5009EA7D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273E3F2C240A53B5009EA7D1 /* Main.storyboard */; };
 		273E3F30240A53B7009EA7D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 273E3F2F240A53B7009EA7D1 /* Assets.xcassets */; };
 		273E3F33240A53B7009EA7D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273E3F31240A53B7009EA7D1 /* LaunchScreen.storyboard */; };
-		273E3F3E240A6A4D009EA7D1 /* DeviseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F3D240A6A4D009EA7D1 /* DeviseService.swift */; };
 		273E3F44240E65E7009EA7D1 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F43240E65E7009EA7D1 /* TranslateViewController.swift */; };
 		273E3F46240E65F7009EA7D1 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F45240E65F7009EA7D1 /* WeatherViewController.swift */; };
-		273E3F48240E660D009EA7D1 /* WeatherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F47240E660D009EA7D1 /* WeatherTest.swift */; };
+		273E3F48240E660D009EA7D1 /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F47240E660D009EA7D1 /* WeatherForecast.swift */; };
 		273E3F4B240E706D009EA7D1 /* UIView+CornerRaduis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F4A240E706D009EA7D1 /* UIView+CornerRaduis.swift */; };
 		273E3F4D240FBBBD009EA7D1 /* Devise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F4C240FBBBD009EA7D1 /* Devise.swift */; };
-		273E3F4F240FBDAB009EA7D1 /* ConvertirDevise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F4E240FBDAB009EA7D1 /* ConvertirDevise.swift */; };
 		273E3F52240FC0E4009EA7D1 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F51240FC0E4009EA7D1 /* ApiKey.swift */; };
 		2798BA222416E6FE0039A4FF /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2798BA212416E6FE0039A4FF /* Translation.swift */; };
-		2798BA24241E99F20039A4FF /* UIView+addToolBarInKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2798BA23241E99F20039A4FF /* UIView+addToolBarInKeyboard.swift */; };
+		2798BA24241E99F20039A4FF /* UIViewController+addToolBarInKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2798BA23241E99F20039A4FF /* UIViewController+addToolBarInKeyboard.swift */; };
+		3F2F7EA1242118A1002355EA /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F7EA0242118A1002355EA /* UIViewController+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,16 +33,15 @@
 		273E3F2F240A53B7009EA7D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		273E3F32240A53B7009EA7D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		273E3F34240A53B7009EA7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		273E3F3D240A6A4D009EA7D1 /* DeviseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviseService.swift; sourceTree = "<group>"; };
 		273E3F43240E65E7009EA7D1 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		273E3F45240E65F7009EA7D1 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		273E3F47240E660D009EA7D1 /* WeatherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTest.swift; sourceTree = "<group>"; };
+		273E3F47240E660D009EA7D1 /* WeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
 		273E3F4A240E706D009EA7D1 /* UIView+CornerRaduis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRaduis.swift"; sourceTree = "<group>"; };
 		273E3F4C240FBBBD009EA7D1 /* Devise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devise.swift; sourceTree = "<group>"; };
-		273E3F4E240FBDAB009EA7D1 /* ConvertirDevise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertirDevise.swift; sourceTree = "<group>"; };
 		273E3F51240FC0E4009EA7D1 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		2798BA212416E6FE0039A4FF /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
-		2798BA23241E99F20039A4FF /* UIView+addToolBarInKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addToolBarInKeyboard.swift"; sourceTree = "<group>"; };
+		2798BA23241E99F20039A4FF /* UIViewController+addToolBarInKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+addToolBarInKeyboard.swift"; sourceTree = "<group>"; };
+		3F2F7EA0242118A1002355EA /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 				273E3F26240A53B5009EA7D1 /* AppDelegate.swift */,
 				273E3F28240A53B5009EA7D1 /* SceneDelegate.swift */,
 				273E3F2F240A53B7009EA7D1 /* Assets.xcassets */,
-				273E3F31240A53B7009EA7D1 /* LaunchScreen.storyboard */,
 				273E3F34240A53B7009EA7D1 /* Info.plist */,
 			);
 			path = Baluchon;
@@ -104,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				273E3F2C240A53B5009EA7D1 /* Main.storyboard */,
+				273E3F31240A53B7009EA7D1 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -111,11 +109,9 @@
 		273E3F3C240A69E8009EA7D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				273E3F3D240A6A4D009EA7D1 /* DeviseService.swift */,
-				273E3F47240E660D009EA7D1 /* WeatherTest.swift */,
 				273E3F4C240FBBBD009EA7D1 /* Devise.swift */,
-				273E3F4E240FBDAB009EA7D1 /* ConvertirDevise.swift */,
 				2798BA212416E6FE0039A4FF /* Translation.swift */,
+				273E3F47240E660D009EA7D1 /* WeatherForecast.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,7 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				273E3F4A240E706D009EA7D1 /* UIView+CornerRaduis.swift */,
-				2798BA23241E99F20039A4FF /* UIView+addToolBarInKeyboard.swift */,
+				2798BA23241E99F20039A4FF /* UIViewController+addToolBarInKeyboard.swift */,
+				3F2F7EA0242118A1002355EA /* UIViewController+Alert.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -211,16 +208,15 @@
 				273E3F52240FC0E4009EA7D1 /* ApiKey.swift in Sources */,
 				273E3F2B240A53B5009EA7D1 /* DeviseViewController.swift in Sources */,
 				273E3F27240A53B5009EA7D1 /* AppDelegate.swift in Sources */,
-				273E3F48240E660D009EA7D1 /* WeatherTest.swift in Sources */,
+				273E3F48240E660D009EA7D1 /* WeatherForecast.swift in Sources */,
 				273E3F29240A53B5009EA7D1 /* SceneDelegate.swift in Sources */,
 				273E3F46240E65F7009EA7D1 /* WeatherViewController.swift in Sources */,
 				273E3F4B240E706D009EA7D1 /* UIView+CornerRaduis.swift in Sources */,
-				273E3F4F240FBDAB009EA7D1 /* ConvertirDevise.swift in Sources */,
 				273E3F4D240FBBBD009EA7D1 /* Devise.swift in Sources */,
 				2798BA222416E6FE0039A4FF /* Translation.swift in Sources */,
-				273E3F3E240A6A4D009EA7D1 /* DeviseService.swift in Sources */,
-				2798BA24241E99F20039A4FF /* UIView+addToolBarInKeyboard.swift in Sources */,
+				2798BA24241E99F20039A4FF /* UIViewController+addToolBarInKeyboard.swift in Sources */,
 				273E3F44240E65E7009EA7D1 /* TranslateViewController.swift in Sources */,
+				3F2F7EA1242118A1002355EA /* UIViewController+Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +362,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Baluchon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,7 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Baluchon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

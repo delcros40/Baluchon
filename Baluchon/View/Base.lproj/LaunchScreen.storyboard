@@ -15,16 +15,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASB-Kb-0Je">
-                                <rect key="frame" x="142" y="402" width="131" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASB-Kb-0Je">
+                                <rect key="frame" x="142.5" y="382.5" width="129" height="131"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="131" id="KD4-da-ulL"/>
+                                    <constraint firstAttribute="width" constant="129" id="L88-Kn-v4a"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="100"/>
                                 <state key="normal" title="B">
-                                    <color key="titleColor" red="1" green="0.34901960784313724" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.80071330070000002" green="0.35020554069999998" blue="0.22335839269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ASB-Kb-0Je" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="0x6-Ka-x1R"/>
+                            <constraint firstItem="ASB-Kb-0Je" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Sqt-mX-2uX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
