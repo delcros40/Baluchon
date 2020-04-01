@@ -9,59 +9,42 @@
 import Foundation
 
 class Translation {
-    
-    var text: String = ""
-    var sourceLanguage: String?
+    /// Entities
+    var text: String
     var targetLanguage: String = ""
-    var translatedText: String?
     
-    init(text: String = "", targetLanguage: String = "en") {
+    var translationSession: URLSession
+    
+    /// Initializer
+    init(text: String = "", targetLanguage: String = "en", translationSession:URLSession = URLSession(configuration: .default)) {
         self.text = text
         self.targetLanguage = targetLanguage
+        self.translationSession = translationSession
     }
-    
-    func getTranslation(completionHandle: @escaping (Bool) -> Void) {
+     /// request to API google translate for get a translation of a text
+    func getTranslation(completionHandle: @escaping (Bool, TranslationResponse?) -> Void) {
         var translationUrl = URLComponents(string: "https://translation.googleapis.com/language/translate/v2?")
         translationUrl?.queryItems = [URLQueryItem(name: "key", value: ApiKey.googleTranslate), URLQueryItem(name: "q", value: self.text), URLQueryItem(name: "target", value: self.targetLanguage)]
         var request = URLRequest(url: (translationUrl?.url!)!)
         request.httpMethod = "GET"
-        
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: request) { (data, response, error) in
+        let task = translationSession.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
-                    completionHandle(false)
+                    completionHandle(false,nil)
                     return
                 }
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    completionHandle(false)
+                    completionHandle(false,nil)
                     return
                 }
-                do {
-                    let translateResponse = try? JSONDecoder().decode(TranslationResponse.self, from: data)
-                    self.sourceLanguage = translateResponse?.data.translations[0].detectedSourceLanguage
-                    self.translatedText = translateResponse?.data.translations[0].translatedText
-                    completionHandle(true)
+                guard let translationResponse = try? JSONDecoder().decode(TranslationResponse.self, from: data) else {
+                    completionHandle(false,nil)
+                    return
                 }
+                completionHandle(true, translationResponse)
             }
             
         }
         task.resume()
     }
-}
-
-
-// MARK: - TranslationResponse
-struct TranslationResponse: Codable {
-    let data: DataTranslate
-}
-
-// MARK: - DataTranslate
-struct DataTranslate: Codable {
-    let translations: [Translate]
-}
-
-// MARK: - Translation
-struct Translate: Codable {
-    let translatedText, detectedSourceLanguage: String
 }

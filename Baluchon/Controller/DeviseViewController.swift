@@ -1,77 +1,89 @@
-//
-//  ViewController.swift
-//  Baluchon
-//
-//  Created by DELCROS Jean-baptiste on 29/02/2020.
-//  Copyright © 2020 DELCROS Jean-baptiste. All rights reserved.
-//
-
+import Foundation
 import UIKit
 
 class DeviseViewController: UIViewController, UITextFieldDelegate {
-
-
+    
+    @IBOutlet weak var myview: UIView!
     @IBOutlet weak var montantTf: UITextField!
-    @IBOutlet weak var imgDeviseSource: UIImageView!
     @IBOutlet weak var lbDeviseSource: UILabel!
+    @IBOutlet weak var imgDeviseSource: UIImageView!
     @IBOutlet weak var imgDeviseTarget: UIImageView!
     @IBOutlet weak var lbDeviseTarget: UILabel!
     @IBOutlet weak var lbResult: UILabel!
     
-    var devise: Devise?
+    var convertirDevise = ConvertionDevise(deviseBase: .euro)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        devise = Devise(name: "USD", euroToDollar: true)
         montantTf.inputAccessoryView = addToolBarInKeyboard(methodeName: "actionDone")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismisskeyboard))
+        tap.cancelsTouchesInView = false
+        self.myview.addGestureRecognizer(tap)
+        self.initialisationDeviseBase(deviseBase: convertirDevise.deviseBase)
+        self.initialisationDeviseTarget(deviseTarget: convertirDevise.deviseTarget)
     }
-    @objc func actionDone() {
-        view.endEditing(true)
-        self.devise?.convertirDevise(montant: Double(self.montantTf.text!)! , completionHandle: { (success, result) in
-            if success {
-                self.lbResult.text = String(format: "%.02f", result!)
-            }
-            
-        })
-    }
+
     
-    @IBAction func actionBtnSwitchDevise(_ sender: UIButton) {
-        self.devise?.euroToDollar = !self.devise!.euroToDollar
-        let textMontant = self.montantTf.text
-        let textSourceDevise = lbDeviseSource.text
-        let imgSourceDevise = imgDeviseSource.image
-        self.imgDeviseSource.image = self.imgDeviseTarget.image
-        self.lbDeviseSource.text = self.lbDeviseTarget.text
-        self.imgDeviseTarget.image = imgSourceDevise
-        self.lbDeviseTarget.text = textSourceDevise
-        self.montantTf.text = self.lbResult.text
-        self.lbResult.text = textMontant
+    @objc func actionDone() {
+        if let montant = Double(self.montantTf.text!) {
+            self.convertirDevise.montant = montant
+            view.endEditing(true)
+            self.convertirDevise.convertirDevise()
+            self.lbResult.text = String(format: "%.02f", self.convertirDevise.resultat!)
+        } else {
+            self.presentAlertError(message: "Entrez un montant")
+        }
         
     }
     
+    @objc func dismisskeyboard() {
+        print("ok")
+        view.endEditing(true)
 
+    }
+    @IBAction func actionBtnSwitchDevise(_ sender: UIButton) {
+        self.presentAlertWait()
+        self.convertirDevise.switchDevise()
+        self.initialisationDeviseBase(deviseBase: convertirDevise.deviseBase)
+        self.initialisationDeviseTarget(deviseTarget: convertirDevise.deviseTarget)
+        if let resultat = self.convertirDevise.resultat {
+            self.convertirDevise.montant = resultat
+            self.montantTf.text = String(format: "%.02f", resultat)
+            self.convertirDevise.convertirDevise()
+            self.lbResult.text = String(format: "%.02f", self.convertirDevise.resultat!)
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func initialisationDeviseBase(deviseBase: Devise) {
+        self.lbDeviseSource.text = deviseBase.description
+        self.imgDeviseSource.image = UIImage(named: deviseBase.rawValue)
+    }
 
+    private func initialisationDeviseTarget(deviseTarget: Devise) {
+        self.lbDeviseTarget.text = deviseTarget.description
+        self.imgDeviseTarget.image = UIImage(named: deviseTarget.rawValue)
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-                let dotString = "."
-
-                if let text = textField.text {
-                    let isDeleteKey = string.isEmpty
-
-                    if !isDeleteKey {
-                        if text.contains(dotString) {
-                            if text.components(separatedBy: dotString)[1].count == 2 {
-
-                                        return false
-
-                            }
-
-                        }
-
+        let dotString = "."
+        if let text = textField.text {
+            let isDeleteKey = string.isEmpty
+            if !isDeleteKey {
+                if text.contains(dotString) {
+                    if text.components(separatedBy: dotString)[1].count == 2 {
+                        return false
                     }
                 }
-                return true
-             }
-
+            }
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 
 }
 

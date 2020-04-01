@@ -17,12 +17,36 @@
 		273E3F46240E65F7009EA7D1 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F45240E65F7009EA7D1 /* WeatherViewController.swift */; };
 		273E3F48240E660D009EA7D1 /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F47240E660D009EA7D1 /* WeatherForecast.swift */; };
 		273E3F4B240E706D009EA7D1 /* UIView+CornerRaduis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F4A240E706D009EA7D1 /* UIView+CornerRaduis.swift */; };
-		273E3F4D240FBBBD009EA7D1 /* Devise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F4C240FBBBD009EA7D1 /* Devise.swift */; };
+		273E3F4D240FBBBD009EA7D1 /* ConvertionDevise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F4C240FBBBD009EA7D1 /* ConvertionDevise.swift */; };
 		273E3F52240FC0E4009EA7D1 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3F51240FC0E4009EA7D1 /* ApiKey.swift */; };
 		2798BA222416E6FE0039A4FF /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2798BA212416E6FE0039A4FF /* Translation.swift */; };
 		2798BA24241E99F20039A4FF /* UIViewController+addToolBarInKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2798BA23241E99F20039A4FF /* UIViewController+addToolBarInKeyboard.swift */; };
 		3F2F7EA1242118A1002355EA /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F7EA0242118A1002355EA /* UIViewController+Alert.swift */; };
+		3F2F7EA9242538ED002355EA /* BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F7EA8242538ED002355EA /* BaluchonTests.swift */; };
+		3F2F7EB524290E96002355EA /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F7EB424290E96002355EA /* WeatherResponse.swift */; };
+		3FA87B31242CC1D900D87616 /* TranslationFakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA87B30242CC1D900D87616 /* TranslationFakeResponseData.swift */; };
+		3FA87B33242CC24B00D87616 /* Translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FA87B32242CC24B00D87616 /* Translation.json */; };
+		3FA87B37242CC2D300D87616 /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FA87B36242CC2D300D87616 /* Weather.json */; };
+		3FA87B39242CC2E400D87616 /* Devise.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FA87B38242CC2E400D87616 /* Devise.json */; };
+		3FA87B3B242CC34F00D87616 /* WeatherFakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA87B3A242CC34F00D87616 /* WeatherFakeResponseData.swift */; };
+		3FA87B3D242CC3B600D87616 /* DeviseFakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA87B3C242CC3B600D87616 /* DeviseFakeResponseData.swift */; };
+		3FA87B3F242CC4D900D87616 /* TranslationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA87B3E242CC4D900D87616 /* TranslationResponse.swift */; };
+		3FA87B41242CC66D00D87616 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA87B40242CC66D00D87616 /* URLSessionFake.swift */; };
+		3FA87B43242CD6A100D87616 /* TranslationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA87B42242CD6A100D87616 /* TranslationTestCase.swift */; };
+		3FA87B53242CEC5300D87616 /* WeatherTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA87B52242CEC5300D87616 /* WeatherTestCase.swift */; };
+		3FA87B552431F69000D87616 /* DeviseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA87B542431F69000D87616 /* DeviseTestCase.swift */; };
+		3FA87B572432259500D87616 /* DeviseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA87B562432259500D87616 /* DeviseResponse.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F2F7EAB242538ED002355EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 273E3F1B240A53B5009EA7D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 273E3F22240A53B5009EA7D1;
+			remoteInfo = Baluchon;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		273E3F23240A53B5009EA7D1 /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,15 +61,38 @@
 		273E3F45240E65F7009EA7D1 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		273E3F47240E660D009EA7D1 /* WeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
 		273E3F4A240E706D009EA7D1 /* UIView+CornerRaduis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRaduis.swift"; sourceTree = "<group>"; };
-		273E3F4C240FBBBD009EA7D1 /* Devise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devise.swift; sourceTree = "<group>"; };
+		273E3F4C240FBBBD009EA7D1 /* ConvertionDevise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertionDevise.swift; sourceTree = "<group>"; };
 		273E3F51240FC0E4009EA7D1 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		2798BA212416E6FE0039A4FF /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		2798BA23241E99F20039A4FF /* UIViewController+addToolBarInKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+addToolBarInKeyboard.swift"; sourceTree = "<group>"; };
 		3F2F7EA0242118A1002355EA /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		3F2F7EA6242538ED002355EA /* BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaluchonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F2F7EA8242538ED002355EA /* BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonTests.swift; sourceTree = "<group>"; };
+		3F2F7EAA242538ED002355EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F2F7EB424290E96002355EA /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		3FA87B30242CC1D900D87616 /* TranslationFakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationFakeResponseData.swift; sourceTree = "<group>"; };
+		3FA87B32242CC24B00D87616 /* Translation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translation.json; sourceTree = "<group>"; };
+		3FA87B36242CC2D300D87616 /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
+		3FA87B38242CC2E400D87616 /* Devise.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Devise.json; sourceTree = "<group>"; };
+		3FA87B3A242CC34F00D87616 /* WeatherFakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFakeResponseData.swift; sourceTree = "<group>"; };
+		3FA87B3C242CC3B600D87616 /* DeviseFakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviseFakeResponseData.swift; sourceTree = "<group>"; };
+		3FA87B3E242CC4D900D87616 /* TranslationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponse.swift; sourceTree = "<group>"; };
+		3FA87B40242CC66D00D87616 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
+		3FA87B42242CD6A100D87616 /* TranslationTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationTestCase.swift; sourceTree = "<group>"; };
+		3FA87B52242CEC5300D87616 /* WeatherTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTestCase.swift; sourceTree = "<group>"; };
+		3FA87B542431F69000D87616 /* DeviseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviseTestCase.swift; sourceTree = "<group>"; };
+		3FA87B562432259500D87616 /* DeviseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviseResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		273E3F20240A53B5009EA7D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F2F7EA3242538ED002355EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				273E3F25240A53B5009EA7D1 /* Baluchon */,
+				3F2F7EA7242538ED002355EA /* BaluchonTests */,
 				273E3F24240A53B5009EA7D1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				273E3F23240A53B5009EA7D1 /* Baluchon.app */,
+				3F2F7EA6242538ED002355EA /* BaluchonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,9 +158,12 @@
 		273E3F3C240A69E8009EA7D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				273E3F4C240FBBBD009EA7D1 /* Devise.swift */,
+				273E3F4C240FBBBD009EA7D1 /* ConvertionDevise.swift */,
+				3FA87B562432259500D87616 /* DeviseResponse.swift */,
 				2798BA212416E6FE0039A4FF /* Translation.swift */,
+				3FA87B3E242CC4D900D87616 /* TranslationResponse.swift */,
 				273E3F47240E660D009EA7D1 /* WeatherForecast.swift */,
+				3F2F7EB424290E96002355EA /* WeatherResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,6 +186,49 @@
 			path = Outil;
 			sourceTree = "<group>";
 		};
+		3F2F7EA7242538ED002355EA /* BaluchonTests */ = {
+			isa = PBXGroup;
+			children = (
+				3FA87B35242CC2B100D87616 /* DeviseTest */,
+				3FA87B34242CC2A500D87616 /* WeatherTest */,
+				3FA87B2F242CC1A300D87616 /* TranslationTest */,
+				3F2F7EA8242538ED002355EA /* BaluchonTests.swift */,
+				3F2F7EAA242538ED002355EA /* Info.plist */,
+				3FA87B40242CC66D00D87616 /* URLSessionFake.swift */,
+			);
+			path = BaluchonTests;
+			sourceTree = "<group>";
+		};
+		3FA87B2F242CC1A300D87616 /* TranslationTest */ = {
+			isa = PBXGroup;
+			children = (
+				3FA87B42242CD6A100D87616 /* TranslationTestCase.swift */,
+				3FA87B30242CC1D900D87616 /* TranslationFakeResponseData.swift */,
+				3FA87B32242CC24B00D87616 /* Translation.json */,
+			);
+			path = TranslationTest;
+			sourceTree = "<group>";
+		};
+		3FA87B34242CC2A500D87616 /* WeatherTest */ = {
+			isa = PBXGroup;
+			children = (
+				3FA87B52242CEC5300D87616 /* WeatherTestCase.swift */,
+				3FA87B3A242CC34F00D87616 /* WeatherFakeResponseData.swift */,
+				3FA87B36242CC2D300D87616 /* Weather.json */,
+			);
+			path = WeatherTest;
+			sourceTree = "<group>";
+		};
+		3FA87B35242CC2B100D87616 /* DeviseTest */ = {
+			isa = PBXGroup;
+			children = (
+				3FA87B542431F69000D87616 /* DeviseTestCase.swift */,
+				3FA87B3C242CC3B600D87616 /* DeviseFakeResponseData.swift */,
+				3FA87B38242CC2E400D87616 /* Devise.json */,
+			);
+			path = DeviseTest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +239,7 @@
 				273E3F1F240A53B5009EA7D1 /* Sources */,
 				273E3F20240A53B5009EA7D1 /* Frameworks */,
 				273E3F21240A53B5009EA7D1 /* Resources */,
+				3FA87B582432311F00D87616 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -153,6 +249,24 @@
 			productName = Baluchon;
 			productReference = 273E3F23240A53B5009EA7D1 /* Baluchon.app */;
 			productType = "com.apple.product-type.application";
+		};
+		3F2F7EA5242538ED002355EA /* BaluchonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F2F7EAD242538ED002355EA /* Build configuration list for PBXNativeTarget "BaluchonTests" */;
+			buildPhases = (
+				3F2F7EA2242538ED002355EA /* Sources */,
+				3F2F7EA3242538ED002355EA /* Frameworks */,
+				3F2F7EA4242538ED002355EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F2F7EAC242538ED002355EA /* PBXTargetDependency */,
+			);
+			name = BaluchonTests;
+			productName = BaluchonTests;
+			productReference = 3F2F7EA6242538ED002355EA /* BaluchonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -166,6 +280,10 @@
 				TargetAttributes = {
 					273E3F22240A53B5009EA7D1 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					3F2F7EA5242538ED002355EA = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 273E3F22240A53B5009EA7D1;
 					};
 				};
 			};
@@ -183,6 +301,7 @@
 			projectRoot = "";
 			targets = (
 				273E3F22240A53B5009EA7D1 /* Baluchon */,
+				3F2F7EA5242538ED002355EA /* BaluchonTests */,
 			);
 		};
 /* End PBXProject section */
@@ -198,29 +317,85 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F2F7EA4242538ED002355EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FA87B37242CC2D300D87616 /* Weather.json in Resources */,
+				3FA87B33242CC24B00D87616 /* Translation.json in Resources */,
+				3FA87B39242CC2E400D87616 /* Devise.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FA87B582432311F00D87616 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		273E3F1F240A53B5009EA7D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA87B3F242CC4D900D87616 /* TranslationResponse.swift in Sources */,
 				273E3F52240FC0E4009EA7D1 /* ApiKey.swift in Sources */,
 				273E3F2B240A53B5009EA7D1 /* DeviseViewController.swift in Sources */,
 				273E3F27240A53B5009EA7D1 /* AppDelegate.swift in Sources */,
 				273E3F48240E660D009EA7D1 /* WeatherForecast.swift in Sources */,
 				273E3F29240A53B5009EA7D1 /* SceneDelegate.swift in Sources */,
+				3F2F7EB524290E96002355EA /* WeatherResponse.swift in Sources */,
 				273E3F46240E65F7009EA7D1 /* WeatherViewController.swift in Sources */,
 				273E3F4B240E706D009EA7D1 /* UIView+CornerRaduis.swift in Sources */,
-				273E3F4D240FBBBD009EA7D1 /* Devise.swift in Sources */,
+				273E3F4D240FBBBD009EA7D1 /* ConvertionDevise.swift in Sources */,
 				2798BA222416E6FE0039A4FF /* Translation.swift in Sources */,
 				2798BA24241E99F20039A4FF /* UIViewController+addToolBarInKeyboard.swift in Sources */,
+				3FA87B572432259500D87616 /* DeviseResponse.swift in Sources */,
 				273E3F44240E65E7009EA7D1 /* TranslateViewController.swift in Sources */,
 				3F2F7EA1242118A1002355EA /* UIViewController+Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F2F7EA2242538ED002355EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FA87B3B242CC34F00D87616 /* WeatherFakeResponseData.swift in Sources */,
+				3FA87B31242CC1D900D87616 /* TranslationFakeResponseData.swift in Sources */,
+				3F2F7EA9242538ED002355EA /* BaluchonTests.swift in Sources */,
+				3FA87B552431F69000D87616 /* DeviseTestCase.swift in Sources */,
+				3FA87B41242CC66D00D87616 /* URLSessionFake.swift in Sources */,
+				3FA87B3D242CC3B600D87616 /* DeviseFakeResponseData.swift in Sources */,
+				3FA87B43242CD6A100D87616 /* TranslationTestCase.swift in Sources */,
+				3FA87B53242CEC5300D87616 /* WeatherTestCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F2F7EAC242538ED002355EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 273E3F22240A53B5009EA7D1 /* Baluchon */;
+			targetProxy = 3F2F7EAB242538ED002355EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		273E3F2C240A53B5009EA7D1 /* Main.storyboard */ = {
@@ -362,7 +537,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Baluchon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,7 +555,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Baluchon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,6 +564,44 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		3F2F7EAE242538ED002355EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BaluchonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = delcros.BaluchonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Baluchon.app/Baluchon";
+			};
+			name = Debug;
+		};
+		3F2F7EAF242538ED002355EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BaluchonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = delcros.BaluchonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Baluchon.app/Baluchon";
 			};
 			name = Release;
 		};
@@ -409,6 +622,15 @@
 			buildConfigurations = (
 				273E3F38240A53B7009EA7D1 /* Debug */,
 				273E3F39240A53B7009EA7D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F2F7EAD242538ED002355EA /* Build configuration list for PBXNativeTarget "BaluchonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F2F7EAE242538ED002355EA /* Debug */,
+				3F2F7EAF242538ED002355EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -10,8 +10,7 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
-    var weatherFirstCity: WeatherForecast?
-    var weatherSecondCity: WeatherForecast?
+    var weatherForcast = WeatherForecast()
     
     @IBOutlet weak var lbCityName1: UILabel!
     @IBOutlet weak var lbWeatherDesc1: UILabel!
@@ -24,34 +23,30 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherFirstCity = WeatherForecast(cityName: WeatherForecast.MONTDEMARSAN) { (success) in
+        self.presentAlertWait()
+        weatherForcast.getWeather(currentCityId: CityId.MONTDEMARSAN.rawValue) { (success, weatherResponse) in
             if success {
-                self.updateFirstCity(weatherForecast: self.weatherFirstCity!)
-            } else {
-                self.presentAlertError(message: "Erreur lors du chargement des données")
+                guard let weatherResponse = weatherResponse else { return }
+                self.initialisationComposant(weatherResponse: weatherResponse)
+                self.dismiss(animated: true, completion: nil)
             }
         }
-        weatherSecondCity = WeatherForecast(cityName: WeatherForecast.NEWYORK, completionHandle: { (success) in
-            if success {
-                self.updateSecondCity(weatherForecast: self.weatherSecondCity!)
-            } else {
-                self.presentAlertError(message: "Erreur lors du chargement des données")
-            }
-        })
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        viewDidLoad()
     }
     
-    private func updateFirstCity( weatherForecast: WeatherForecast) {
-        self.lbCityName1.text = weatherForecast.city
-        self.lbWeatherDesc1.text = weatherForecast.state
-        self.lbWeatherTemp1.text = "\(Int(weatherForecast.temp!))°"
-        loadImage(imageName: weatherForecast.icon!, imageView: self.IVWeatherIcon1)
-    }
-    
-    private func updateSecondCity( weatherForecast: WeatherForecast) {
-       self.lbCityName2.text = weatherForecast.city
-        self.lbWeatherDesc2.text = weatherForecast.state
-        self.lbWeatherTemp2.text = String(weatherForecast.temp!)
-        loadImage(imageName: weatherForecast.icon!, imageView: self.IVWeatherIcon2)
+    private func initialisationComposant(weatherResponse: WeatherResponse) {
+        let weatherNY = weatherResponse.list[1]
+        let weatherCurrent = weatherResponse.list[0]
+        self.lbCityName1.text = weatherCurrent.name
+        self.lbWeatherDesc1.text = weatherCurrent.weather[0].weatherDescription
+        self.lbWeatherTemp1.text = "\(Int(weatherCurrent.main.temp))°"
+        loadImage(imageName: weatherCurrent.weather[0].icon, imageView: self.IVWeatherIcon1)
+        self.lbCityName2.text = weatherNY.name
+        self.lbWeatherDesc2.text = weatherNY.weather[0].weatherDescription
+        self.lbWeatherTemp2.text = "\(Int(weatherNY.main.temp))°"
+        loadImage(imageName: weatherNY.weather[0].icon, imageView: self.IVWeatherIcon2)
     }
     
     

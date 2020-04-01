@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// extension of the UIVIew class allowing to fill in a raduis corner value in the storyboard
 extension UIView {
 
 @IBInspectable

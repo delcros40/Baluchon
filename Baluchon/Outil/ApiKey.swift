@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/// class grouping API keys to be able to make requests
 class ApiKey {
     static let keyFixer = "5e3f15b5637048aa00612f2e292f1ad4"
     static let openWeatherMap = "4d92a0b520a73c57d3d8d72d6b5194ba"

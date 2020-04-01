@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TranslateViewController: UIViewController, UITextViewDelegate {
+class TranslateViewController: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var tVSaisieText: UITextView!
     @IBOutlet weak var tVTranslation: UITextView!
@@ -17,6 +17,7 @@ class TranslateViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lbSourceLanguage.text = ""
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         tVSaisieText.inputAccessoryView = addToolBarInKeyboard(methodeName: "actionDone")
     }
     
@@ -30,10 +31,12 @@ class TranslateViewController: UIViewController, UITextViewDelegate {
         view.endEditing(true)
         if tVSaisieText.text.count > 0 {
             translation.text = tVSaisieText.text
-            translation.getTranslation { (success) in
+            self.presentAlertWait()
+            translation.getTranslation { (success, translationResponse) in
+                self.dismiss(animated: true, completion: nil)
                 if success {
-                    self.lbSourceLanguage.text = self.translation.sourceLanguage?.uppercased()
-                    self.tVTranslation.text = self.translation.translatedText
+                    self.lbSourceLanguage.text = translationResponse?.data.translations[0].detectedSourceLanguage.uppercased()
+                    self.tVTranslation.text = translationResponse?.data.translations[0].translatedText
                 }
             }
         } else {

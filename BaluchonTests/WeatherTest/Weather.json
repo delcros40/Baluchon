@@ -1,0 +1,83 @@
+{
+    "cnt": 2,
+    "list": [
+        {
+            "coord": {
+                "lon": -74.01,
+                "lat": 40.71
+            },
+            "sys": {
+                "country": "US",
+                "timezone": -14400,
+                "sunrise": 1585564914,
+                "sunset": 1585610309
+            },
+            "weather": [
+                {
+                    "id": 803,
+                    "main": "Clouds",
+                    "description": "nuageux",
+                    "icon": "04n"
+                }
+            ],
+            "main": {
+                "temp": 6.91,
+                "feels_like": 3.44,
+                "temp_min": 5,
+                "temp_max": 8.89,
+                "pressure": 1014,
+                "humidity": 93
+            },
+            "visibility": 16093,
+            "wind": {
+                "speed": 3.6,
+                "deg": 30
+            },
+            "clouds": {
+                "all": 75
+            },
+            "dt": 1585559749,
+            "id": 5128581,
+            "name": "New York"
+        },
+        {
+            "coord": {
+                "lon": -0.5,
+                "lat": 43.89
+            },
+            "sys": {
+                "country": "FR",
+                "timezone": 7200,
+                "sunrise": 1585547181,
+                "sunset": 1585592764
+            },
+            "weather": [
+                {
+                    "id": 804,
+                    "main": "Clouds",
+                    "description": "couvert",
+                    "icon": "04d"
+                }
+            ],
+            "main": {
+                "temp": 3.11,
+                "feels_like": -0.54,
+                "temp_min": 1.67,
+                "temp_max": 4,
+                "pressure": 1020,
+                "humidity": 86
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 2.6,
+                "deg": 320
+            },
+            "clouds": {
+                "all": 90
+            },
+            "dt": 1585559356,
+            "id": 2992771,
+            "name": "Mont-de-Marsan"
+        }
+    ]
+}
