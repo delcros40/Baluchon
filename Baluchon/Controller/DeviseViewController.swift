@@ -16,9 +16,7 @@ class DeviseViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         montantTf.inputAccessoryView = addToolBarInKeyboard(methodeName: "actionDone")
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismisskeyboard))
-        tap.cancelsTouchesInView = false
-        self.myview.addGestureRecognizer(tap)
+        self.montantTf.delegate = self
         self.initialisationDeviseBase(deviseBase: convertirDevise.deviseBase)
         self.initialisationDeviseTarget(deviseTarget: convertirDevise.deviseTarget)
     }
@@ -27,20 +25,15 @@ class DeviseViewController: UIViewController, UITextFieldDelegate {
     @objc func actionDone() {
         if let montant = Double(self.montantTf.text!) {
             self.convertirDevise.montant = montant
-            view.endEditing(true)
             self.convertirDevise.convertirDevise()
             self.lbResult.text = String(format: "%.02f", self.convertirDevise.resultat!)
         } else {
             self.presentAlertError(message: "Entrez un montant")
         }
+        view.endEditing(true)
         
     }
     
-    @objc func dismisskeyboard() {
-        print("ok")
-        view.endEditing(true)
-
-    }
     @IBAction func actionBtnSwitchDevise(_ sender: UIButton) {
         self.presentAlertWait()
         self.convertirDevise.switchDevise()
@@ -80,10 +73,10 @@ class DeviseViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
+    
 
 }
 

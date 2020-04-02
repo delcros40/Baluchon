@@ -90,13 +90,38 @@ class DeviseTestCase: XCTestCase {
         XCTAssertEqual(Devise.euro.description, "EUR - euro")
     }
     
-    func testConvertionDevise() {
+    func testConvertionDeviseEuroToDollars() {
         // Given
-        var  convertionDevise = ConvertionDevise(deviseBase: .euro,deviseSession: URLSessionFake(data: DeviseFakeResponseData.deviseCorrectData, response: DeviseFakeResponseData.responseOK, error: nil))
+        let convertionDevise = ConvertionDevise(deviseBase: .euro,deviseSession: URLSessionFake(data: DeviseFakeResponseData.deviseCorrectData, response: DeviseFakeResponseData.responseOK, error: nil))
         convertionDevise.montant = 10
         convertionDevise.rate = 1.08313
         convertionDevise.convertirDevise()
         XCTAssertEqual(convertionDevise.resultat, 10 * 1.08313)
+    }
+    
+    func testConvertionDeviseDollarsToEuro() {
+        // Given
+        let convertionDevise = ConvertionDevise(deviseBase: .euro,deviseSession: URLSessionFake(data: DeviseFakeResponseData.deviseCorrectData, response: DeviseFakeResponseData.responseOK, error: nil))
+        convertionDevise.switchDevise()
+        convertionDevise.montant = 10
+        convertionDevise.rate = 1.08313
+        convertionDevise.convertirDevise()
+        XCTAssertEqual(convertionDevise.resultat, 10 / 1.08313)
+    }
+    
+    func testConvertionDeviseRateNul() {
+        // Given
+        let convertionDevise = ConvertionDevise(deviseBase: .euro,deviseSession: URLSessionFake(data: DeviseFakeResponseData.deviseCorrectData, response: DeviseFakeResponseData.responseOK, error: nil))
+        convertionDevise.montant = 10
+        convertionDevise.convertirDevise()
+        XCTAssertEqual(convertionDevise.resultat, 0)
+    }
+    
+    func testSwitchDevise() {
+        let convertionDevise = ConvertionDevise(deviseBase: .euro,deviseSession: URLSessionFake(data: DeviseFakeResponseData.deviseCorrectData, response: DeviseFakeResponseData.responseOK, error: nil))
+        convertionDevise.switchDevise()
+        XCTAssertEqual(convertionDevise.deviseBase, Devise.dollarsUS)
+        XCTAssertEqual(convertionDevise.deviseTarget, Devise.euro)
     }
     
 }

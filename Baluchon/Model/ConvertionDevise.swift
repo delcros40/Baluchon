@@ -23,8 +23,10 @@ class ConvertionDevise {
     init(deviseBase: Devise, deviseSession:URLSession = URLSession(configuration: .default)) {
         self.deviseBase = deviseBase
         self.deviseSession = deviseSession
-        self.getTaux { (success, deviseResponse) in
-            self.rate = deviseResponse?.rates[self.deviseTarget.rawValue]
+        self.getTaux { [weak self] (success, deviseResponse) in
+            if success {
+                self?.rate = deviseResponse?.rates[(self?.deviseTarget.rawValue)!]
+            }
         }
     }
     

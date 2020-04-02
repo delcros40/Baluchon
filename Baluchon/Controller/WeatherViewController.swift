@@ -24,11 +24,11 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presentAlertWait()
-        weatherForcast.getWeather(currentCityId: CityId.MONTDEMARSAN.rawValue) { (success, weatherResponse) in
+        weatherForcast.getWeather(currentCityId: CityId.MONTDEMARSAN.rawValue) { [weak self] (success, weatherResponse) in
             if success {
                 guard let weatherResponse = weatherResponse else { return }
-                self.initialisationComposant(weatherResponse: weatherResponse)
-                self.dismiss(animated: true, completion: nil)
+                self?.initialisationComposant(weatherResponse: weatherResponse)
+                self?.dismiss(animated: true, completion: nil)
             }
         }
     }

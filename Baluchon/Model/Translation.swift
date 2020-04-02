@@ -12,7 +12,6 @@ class Translation {
     /// Entities
     var text: String
     var targetLanguage: String = ""
-    
     var translationSession: URLSession
     
     /// Initializer

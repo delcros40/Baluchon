@@ -16,8 +16,8 @@ class TranslateViewController: UIViewController, UITextViewDelegate, UIGestureRe
     var translation = Translation()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tVSaisieText.delegate = self
         self.lbSourceLanguage.text = ""
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         tVSaisieText.inputAccessoryView = addToolBarInKeyboard(methodeName: "actionDone")
     }
     
@@ -32,18 +32,20 @@ class TranslateViewController: UIViewController, UITextViewDelegate, UIGestureRe
         if tVSaisieText.text.count > 0 {
             translation.text = tVSaisieText.text
             self.presentAlertWait()
-            translation.getTranslation { (success, translationResponse) in
-                self.dismiss(animated: true, completion: nil)
+            translation.getTranslation { [weak self] (success, translationResponse) in
+                self?.dismiss(animated: true, completion: nil)
                 if success {
-                    self.lbSourceLanguage.text = translationResponse?.data.translations[0].detectedSourceLanguage.uppercased()
-                    self.tVTranslation.text = translationResponse?.data.translations[0].translatedText
+                    self?.lbSourceLanguage.text = translationResponse?.data.translations[0].detectedSourceLanguage.uppercased()
+                    self?.tVTranslation.text = translationResponse?.data.translations[0].translatedText
                 }
             }
         } else {
             presentAlertError(message: "Saisissez un texte a traduire")
         }
-        
-        
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+           view.endEditing(true)
+       }
+    
 }
