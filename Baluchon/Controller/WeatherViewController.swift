@@ -49,7 +49,6 @@ class WeatherViewController: UIViewController {
         loadImage(imageName: weatherNY.weather[0].icon, imageView: self.IVWeatherIcon2)
     }
     
-    
     private func loadImage(imageName: String, imageView: UIImageView) {
         DispatchQueue.global().async {
             if let data = try? Data(contentsOf: URL(string: "http://openweathermap.org/img/wn/\(imageName)@2x.png")!) {

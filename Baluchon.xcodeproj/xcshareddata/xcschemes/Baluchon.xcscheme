@@ -39,6 +39,16 @@
                ReferencedContainer = "container:Baluchon.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2798BA2A243788740039A4FF"
+               BuildableName = "BaluchonScreenShotsUITests.xctest"
+               BlueprintName = "BaluchonScreenShotsUITests"
+               ReferencedContainer = "container:Baluchon.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

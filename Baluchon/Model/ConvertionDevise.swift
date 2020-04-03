@@ -75,7 +75,6 @@ class ConvertionDevise {
             self.resultat = 0
         }
         
-       
     }
     
 }

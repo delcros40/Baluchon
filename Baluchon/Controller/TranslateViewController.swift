@@ -29,7 +29,7 @@ class TranslateViewController: UIViewController, UITextViewDelegate, UIGestureRe
 
     @objc func actionDone() {
         view.endEditing(true)
-        if tVSaisieText.text.count > 0 {
+        if !tVSaisieText.text.isEmpty {
             translation.text = tVSaisieText.text
             self.presentAlertWait()
             translation.getTranslation { [weak self] (success, translationResponse) in

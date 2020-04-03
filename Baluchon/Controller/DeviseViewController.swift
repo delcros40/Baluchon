@@ -20,7 +20,6 @@ class DeviseViewController: UIViewController, UITextFieldDelegate {
         self.initialisationDeviseBase(deviseBase: convertirDevise.deviseBase)
         self.initialisationDeviseTarget(deviseTarget: convertirDevise.deviseTarget)
     }
-
     
     @objc func actionDone() {
         if let montant = Double(self.montantTf.text!) {
@@ -77,6 +76,4 @@ class DeviseViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-
 }
-

@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// struct for decode json of the response of api
+// struct for decode json of the response of api
 // MARK: - TranslationResponse
 struct TranslationResponse: Codable {
     let data: DataTranslate

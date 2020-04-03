@@ -17,8 +17,7 @@ class WeatherForecast {
         self.weatherSession = weatherSession
     }
     
-    
-    func getWeather(currentCityId: Int, completionHandle: @escaping (Bool, WeatherResponse?) -> Void)  {
+    func getWeather(currentCityId: Int, completionHandle: @escaping (Bool, WeatherResponse?) -> Void) {
         var weatherUrl = URLComponents(string: "http://api.openweathermap.org/data/2.5/group?")
         weatherUrl?.queryItems = [URLQueryItem(name: "id", value: "\(currentCityId),\(CityId.NEWYORK.rawValue)"), URLQueryItem(name: "APPID", value: ApiKey.openWeatherMap), URLQueryItem(name: "units", value: "metric"), URLQueryItem(name: "lang", value: "fr")]
         var request = URLRequest(url: (weatherUrl?.url!)!)
@@ -42,8 +41,6 @@ class WeatherForecast {
         }
         task.resume()
     }
-    
-    
     
 }
 

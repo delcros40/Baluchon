@@ -12,7 +12,7 @@ class WeatherFakeResponseData {
     // MARK: - Data
     static var weatherCorrectData: Data? {
         let bundle = Bundle(for: WeatherFakeResponseData.self)
-        let url = bundle.url(forResource: "Weather", withExtension: "json")// appel json
+        let url = bundle.url(forResource: "Weather2", withExtension: "json")// appel json
         let data = try! Data(contentsOf: url!)
         return data
     }

@@ -15,4 +15,3 @@ struct DeviseResponse: Codable {
     let base, date: String
     let rates: [String: Double]
 }
-
