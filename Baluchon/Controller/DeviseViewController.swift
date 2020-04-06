@@ -22,6 +22,7 @@ class DeviseViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func actionDone() {
+        view.endEditing(true)
         if let montant = Double(self.montantTf.text!) {
             self.convertirDevise.montant = montant
             self.convertirDevise.convertirDevise()
@@ -29,7 +30,6 @@ class DeviseViewController: UIViewController, UITextFieldDelegate {
         } else {
             self.presentAlertError(message: "Entrez un montant")
         }
-        view.endEditing(true)
         
     }
     
