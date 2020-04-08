@@ -9,7 +9,7 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
-
+    
     var weatherForcast = WeatherForecast()
     
     @IBOutlet weak var lbCityName1: UILabel!
@@ -25,10 +25,12 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         self.presentAlertWait()
         weatherForcast.getWeather(currentCityId: CityId.MONTDEMARSAN.rawValue) { [weak self] (success, weatherResponse) in
-            if success {
-                guard let weatherResponse = weatherResponse else { return }
-                self?.initialisationComposant(weatherResponse: weatherResponse)
-                self?.dismiss(animated: true, completion: nil)
+            DispatchQueue.main.async {
+                if success {
+                    guard let weatherResponse = weatherResponse else { return }
+                    self?.initialisationComposant(weatherResponse: weatherResponse)
+                    self?.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }
@@ -60,5 +62,5 @@ class WeatherViewController: UIViewController {
             }
         }
     }
-
+    
 }

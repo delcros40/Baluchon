@@ -27,7 +27,6 @@ class Translation {
         var request = URLRequest(url: (translationUrl?.url!)!)
         request.httpMethod = "GET"
         let task = translationSession.dataTask(with: request) { (data, response, error) in
-            DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     completionHandle(false,nil)
                     return
@@ -41,8 +40,6 @@ class Translation {
                     return
                 }
                 completionHandle(true, translationResponse)
-            }
-            
         }
         task.resume()
     }

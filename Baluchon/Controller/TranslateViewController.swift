@@ -9,7 +9,7 @@
 import UIKit
 
 class TranslateViewController: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
-
+    
     @IBOutlet weak var tVSaisieText: UITextView!
     @IBOutlet weak var tVTranslation: UITextView!
     @IBOutlet weak var lbSourceLanguage: UILabel!
@@ -26,26 +26,28 @@ class TranslateViewController: UIViewController, UITextViewDelegate, UIGestureRe
             self.translation.text = textView.text!
         }
     }
-
+    
     @objc func actionDone() {
         view.endEditing(true)
         if !tVSaisieText.text.isEmpty {
             translation.text = tVSaisieText.text
             self.presentAlertWait()
             translation.getTranslation { [weak self] (success, translationResponse) in
-                self?.dismiss(animated: true, completion: nil)
-                if success {
-                    self?.lbSourceLanguage.text = translationResponse?.data.translations[0].detectedSourceLanguage.uppercased()
-                    self?.tVTranslation.text = translationResponse?.data.translations[0].translatedText
+                DispatchQueue.main.async {
+                    self?.dismiss(animated: true, completion: nil)
+                    if success {
+                        self?.lbSourceLanguage.text = translationResponse?.data.translations[0].detectedSourceLanguage.uppercased()
+                        self?.tVTranslation.text = translationResponse?.data.translations[0].translatedText
+                    }
                 }
             }
         } else {
             presentAlertError(message: "Saisissez un texte a traduire")
         }
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-           view.endEditing(true)
-       }
+        view.endEditing(true)
+    }
     
 }

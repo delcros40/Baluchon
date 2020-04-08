@@ -23,7 +23,6 @@ class WeatherForecast {
         var request = URLRequest(url: (weatherUrl?.url!)!)
         request.httpMethod = "POST"
         let task = self.weatherSession.dataTask(with: request) { (data, response, error) in
-            DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     completionHandle(false, nil)
                         return
@@ -37,7 +36,6 @@ class WeatherForecast {
                     return
                 }
                 completionHandle(true, responseJSON)
-            }
         }
         task.resume()
     }

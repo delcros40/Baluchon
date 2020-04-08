@@ -24,8 +24,10 @@ class ConvertionDevise {
         self.deviseBase = deviseBase
         self.deviseSession = deviseSession
         self.getTaux { [weak self] (success, deviseResponse) in
+            DispatchQueue.main.async {
             if success {
                 self?.rate = deviseResponse?.rates[(self?.deviseTarget.rawValue)!]
+            }
             }
         }
     }
@@ -37,7 +39,6 @@ class ConvertionDevise {
         var request = URLRequest(url: (deviseUrl?.url)!)
         request.httpMethod = "GET"
         let task = deviseSession.dataTask(with: request) { (data, response, error) in
-            DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     completionHandle(false, nil)
                     return
@@ -51,7 +52,6 @@ class ConvertionDevise {
                     return
                 }
                 completionHandle(true, deviseResponse)
-            }
         }
         task.resume()
     }

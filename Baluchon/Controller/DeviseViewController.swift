@@ -51,7 +51,7 @@ class DeviseViewController: UIViewController, UITextFieldDelegate {
         self.lbDeviseSource.text = deviseBase.description
         self.imgDeviseSource.image = UIImage(named: deviseBase.rawValue)
     }
-
+    
     private func initialisationDeviseTarget(deviseTarget: Devise) {
         self.lbDeviseTarget.text = deviseTarget.description
         self.imgDeviseTarget.image = UIImage(named: deviseTarget.rawValue)
